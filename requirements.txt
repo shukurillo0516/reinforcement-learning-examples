@@ -1,4 +1,5 @@
 gymnasium==1.2.1
+gymnasium[classic-control]
 matplotlib==3.10.6
 numpy==2.3.3
 tqdm==4.67.1

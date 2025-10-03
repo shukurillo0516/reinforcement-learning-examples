@@ -12,6 +12,7 @@ class QAgent:
         epsilon_decay: float,
         final_epsilon: float,
         discount_factor: float = 0.95,
+        q_values: dict = None,
     ):
         """Initialize a Q-Learning agent.
 
@@ -27,7 +28,7 @@ class QAgent:
 
         # Q-table: maps (state, action) to expected reward
         # defaultdict automatically creates entries with zeros for new states
-        self.q_values = defaultdict(lambda: np.zeros(env.action_space.n))
+        self.q_values = q_values if q_values else defaultdict(lambda: np.zeros(env.action_space.n))
 
         self.lr = learning_rate
         self.discount_factor = discount_factor  # How much we care about future rewards
